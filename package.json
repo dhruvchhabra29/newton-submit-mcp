@@ -1,23 +1,24 @@
 {
   "name": "newton-submit-mcp",
-  "version": "1.1.0",
-  "description": "MCP server for fetching and submitting Newton School problems",
-  "main": "dist/server.js",
+  "version": "1.2.0",
+  "description": "MCP server for Newton School platform APIs, problem fetching, code sync, and automated runner evaluation",
   "type": "module",
+  "bin": {
+    "newton-submit-mcp": "./build/index.js",
+    "newton-school-mcp": "./build/index.js"
+  },
+  "main": "build/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start": "node dist/server.js",
-    "dev": "tsx src/server.ts"
+    "build": "tsc && chmod +x build/index.js",
+    "start": "node build/index.js",
+    "watch": "tsc --watch",
+    "prepare": "npm run build"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.28.0",
-    "axios": "^1.6.7",
-    "ioredis": "^5.10.1",
-    "zod": "^3.23.8"
+    "@modelcontextprotocol/sdk": "^0.6.0"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "tsx": "^4.7.1",
-    "typescript": "^5.4.5"
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
   }
 }
